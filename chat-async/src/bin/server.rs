@@ -23,6 +23,7 @@ async fn handle_connection(
                         if msg.is_text() {
                             // Ambil teksnya dan tambahkan alamat pengirim
                             let text = msg.as_text().unwrap_or_default();
+                            println!("From client {addr} {text:?}");
                             let broadcast_msg = format!("{addr}: {text}");
                             
                             let _ = bcast_tx.send(broadcast_msg);
